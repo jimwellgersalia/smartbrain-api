@@ -11,8 +11,11 @@ import { handleImage } from './controllers/image.js';
 
 
 const db = knex({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    client: 'pg',
+    connection: {
+        connectionString: process.env.DATABASE_URL,
+        ssl: { rejectUnauthorized: false }
+    }
 });
 
 const app = express();
