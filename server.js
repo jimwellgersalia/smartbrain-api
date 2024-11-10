@@ -10,6 +10,10 @@ import { handleImage } from './controllers/image.js';
 
 
 
+const db = knex({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -19,12 +23,6 @@ app.use(cors());
 app.use(express.json());
 
 
-const db = knex({
-    connectionString: "postgresql://smartbraindb_qnqs_user:xScN6FIWAabUwBmtkpXT3tHETAWPfN2Y@dpg-csodgn9u0jms739651tg-a/smartbraindb_qnqs",
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
 // Homepage
 app.get('/', (req, res) => {
     res.send('success');
