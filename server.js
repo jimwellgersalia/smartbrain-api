@@ -10,23 +10,25 @@ import { handleImage } from './controllers/image.js';
 
 
 
+
+const app = express();
+const PORT = process.env.PORT || 3000
+// app.use(express.urlencoded({ extended: false }));
+//body parser to json
+app.use(cors());
+app.use(express.json());
+
+
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
+        host: '',
         port: 5432,
         user: 'postgres',
         password: 'postgres',
         database: 'smart-brain',
     },
 });
-const app = express();
-
-// app.use(express.urlencoded({ extended: false }));
-//body parser to json
-app.use(cors());
-app.use(express.json());
-
 // Homepage
 app.get('/', (req, res) => {
     res.send('success');
@@ -51,8 +53,8 @@ app.put('/image', handleImage(db))
 app.post('/clarifai', handleClarifai)
 
 //Port Listener
-app.listen(3000, () => {
-    console.log('app is running on port 3000')
+app.listen(port, () => {
+    console.log(`app is running on port ${PORT}`)
 })
 
 /* 
