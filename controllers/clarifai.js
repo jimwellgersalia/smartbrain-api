@@ -1,5 +1,5 @@
 export const handleClarifai = (req, res) => {
-    const { imageUrl, model_id } = req.body
+    const { imageUrl } = req.body
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     // In this section, we set the user authentication, user and app ID, model details, and the URL
     // of the image we want as an input. Change these strings to run your own example.
@@ -12,7 +12,7 @@ export const handleClarifai = (req, res) => {
     const USER_ID = 'jimwelldev';
     const APP_ID = 'test';
     // Change these to whatever model and image URL you want to use
-    const MODEL_ID = model_id;
+    const MODEL_ID = 'face-detection';
     const IMAGE_URL = imageUrl;
 
     ///////////////////////////////////////////////////////////////////////////////////
