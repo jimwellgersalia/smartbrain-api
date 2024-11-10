@@ -20,8 +20,10 @@ app.use(express.json());
 
 
 const db = knex({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    connectionString: "postgresql://smartbraindb_qnqs_user:xScN6FIWAabUwBmtkpXT3tHETAWPfN2Y@dpg-csodgn9u0jms739651tg-a/smartbraindb_qnqs",
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 // Homepage
 app.get('/', (req, res) => {
