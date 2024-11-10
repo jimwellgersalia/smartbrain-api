@@ -53,7 +53,7 @@ app.put('/image', handleImage(db))
 app.post('/clarifai', handleClarifai)
 
 //Port Listener
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`)
 })
 
